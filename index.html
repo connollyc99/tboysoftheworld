@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>T-Boys of Chicago</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Archivo', sans-serif;
+      background-color: #fff5e1;
+      color: #333;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+      background-color: #fcddec;
+      border-bottom: 4px solid #00884b;
+    }
+    header img {
+      height: 60px;
+      margin-right: 1rem;
+    }
+    header h1 {
+      font-family: 'Anton', sans-serif;
+      font-size: 2rem;
+      color: #00884b;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+    .card {
+      background-color: #fff;
+      border: 3px solid #00884b;
+      border-radius: 1rem;
+      padding: 1rem;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .card:hover {
+      transform: scale(1.02);
+    }
+    .card h2 {
+      margin: 0.5rem 0;
+      color: #d8006e;
+    }
+    .profile {
+      display: none;
+      padding: 2rem;
+      background: #ffffff;
+      border-top: 4px solid #00884b;
+    }
+    .profile.active {
+      display: block;
+    }
+    .profile h2 {
+      color: #d8006e;
+    }
+    .donate {
+      margin-top: 1rem;
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: #00884b;
+      color: #fff;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://tboys-of-chicago.s3.amazonaws.com/logo.png" alt="T-Boys of Chicago Logo" />
+    <h1>T-Boys of Chicago</h1>
+  </header>
+
+  <main>
+    <section class="grid">
+      <div class="card" onclick="showProfile('post-1')">
+        <h2>Jayden (he/him)</h2>
+        <p>Bike messenger. Punk historian. Says the lake is his “spiritual mom.”</p>
+      </div>
+      <div class="card" onclick="showProfile('post-2')">
+        <h2>Vic (they/them)</h2>
+        <p>Nonbinary tattooer in Pilsen. Can read your whole vibe in under 3 seconds.</p>
+      </div>
+    </section>
+
+    <section id="post-1" class="profile">
+      <h2>Jayden (he/him)</h2>
+      <div>
+        <p>Jayden grew up in Rogers Park and has been biking professionally since he was 17. He talks about the adrenaline, the cold winters, and how his favorite route takes him down the Lakefront Trail where he “feels closest to who I really am.”</p>
+        <a href="#" class="donate">Donate to Jayden</a>
+      </div>
+    </section>
+
+    <section id="post-2" class="profile">
+      <h2>Vic (they/them)</h2>
+      <div>
+        <p>Vic is a self-taught artist who found their way into tattooing after years in DIY zine spaces. Their work is bold, abstract, and always personal. “Every line I draw is another version of myself.”</p>
+        <a href="#" class="donate">Donate to Vic</a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function showProfile(id) {
+      document.querySelectorAll('.profile').forEach(p => p.classList.remove('active'));
+      const el = document.getElementById(id);
+      if (el) {
+        el.classList.add('active');
+        window.scrollTo({ top: el.offsetTop - 20, behavior: 'smooth' });
+      }
+    }
+  </script>
+</body>
+</html>
